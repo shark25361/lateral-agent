@@ -1,0 +1,15 @@
+.env
+.tools/
+data/
+*.exe
+coverage.out
+research/
+*.zip
+*.log
+attack-sdk-go/
+state.md
+docs.pdf
+docs_text.txt
+docs_extracted.txt
+fourcore_api_docs.html
+fourcore_openapi.json

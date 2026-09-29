@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FourCore Agent</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header><div class="brand">FOURCORE <span>AGENT</span></div><span id="connection">Connect to begin</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">SECURITY VALIDATION WORKSPACE</p><h1>From a question<br>to a verified simulation.</h1><p>Choose the objective. Review the scope. Follow the evidence.</p></section>
+    <section id="login" class="panel">
+      <label for="token">Application access token</label>
+      <div class="row"><input id="token" type="password" autocomplete="off" placeholder="APP_TOKEN from your .env"><button id="connect">Connect</button></div>
+      <p class="muted">Use your local application token. Provider keys stay on the server.</p>
+    </section>
+    <div id="workspace" hidden>
+      <div class="toolbar"><span id="mode"></span><button id="new-chat" class="secondary">New conversation</button></div>
+      <div class="columns">
+        <section class="panel chat">
+          <h2>Conversation</h2>
+          <details class="history"><summary>Conversation history</summary><div id="chat-history"><p class="muted">Connect to load saved conversations.</p></div></details>
+          <div id="messages" aria-live="polite"><p class="muted">Describe what you want to validate, and which assets to use.</p></div>
+          <form id="chat-form"><label for="message">Your request</label><textarea id="message" rows="3" placeholder="Validate an evidence-backed AD path between two permitted lab assets." required></textarea><button id="send">Send request <span>↗</span></button></form>
+        </section>
+        <section class="plans"><div class="row"><h2>Plans &amp; runs</h2><button id="refresh" class="secondary">Refresh</button></div><div id="plans"><p class="muted">Validated plans will appear here.</p></div></section>
+      </div>
+      <section id="graph-panel" class="panel graph-panel" hidden aria-labelledby="graph-title">
+        <div class="row"><div><p class="eyebrow">ACTIVE DIRECTORY EVIDENCE</p><h2 id="graph-title">Mission graph</h2></div><div class="graph-actions"><button id="graph-refresh" class="secondary">Refresh graph</button><button id="graph-close" class="secondary">Close</button></div></div>
+        <div id="graph-route" class="route-summary"></div>
+        <div id="graph-counts" class="graph-counts"></div>
+        <div class="graph-scroll"><svg id="ad-graph" role="img" aria-label="Active Directory evidence graph"></svg></div>
+        <div class="graph-legend"><span><i class="legend-observed"></i>Observed</span><span><i class="legend-simulated"></i>Simulated chain</span><span><i class="legend-verified"></i>Destination-verified</span><span><i class="legend-selected"></i>Selected route</span><span><i class="legend-objective"></i>Objective only</span></div>
+        <div id="graph-selection" class="graph-selection" aria-live="polite">Select a node or edge to inspect its evidence.</div>
+        <h3>Relationship evidence</h3>
+        <div id="graph-evidence" class="evidence-list"></div>
+      </section>
+    </div>
+    <p id="error" role="alert"></p>
+  </main>
+  <footer>ADK Go · OpenRouter · FourCore API</footer>
+</body>
+</html>
